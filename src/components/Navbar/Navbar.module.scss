@@ -1,0 +1,143 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    color: $color-white;
+    background: url(/arto-tattoo/assets/background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    @include mobile {
+        padding: 20px 24px;
+    }
+}
+
+.logo {
+    font-family: $font-family-serif;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.desktopLinks {
+    display: flex;
+    gap: 40px;
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.link {
+    font-family: $font-family-sans;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 1;
+
+        &::after {
+            transform: scaleX(1);
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: currentColor;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &:hover::after {
+        transform-origin: left;
+    }
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+    z-index: 200;
+    width: 24px;
+    height: 16px;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include mobile {
+        display: flex;
+    }
+
+    span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: $color-white;
+        transition: all 0.3s ease;
+    }
+}
+
+.burgerOpen {
+
+    height: 16px;
+
+    span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
+
+.mobileMenu {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    background-color: $color-gray-dark;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 24px;
+    z-index: 99;
+    gap: 16px;
+}
+
+.mobileLink {
+    font-family: $font-family-serif;
+    font-size: 16px;
+    color: $color-white;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}

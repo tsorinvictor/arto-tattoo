@@ -2,6 +2,7 @@ import Head from "next/head";
 import { motion } from "framer-motion";
 import styles from "./about.module.scss";
 import Button from "@/components/Button";
+import ContactForm from "@/components/ContactForm";
 
 const images = [1, 2, 3, 4, 5, 6]; // Placeholders
 
@@ -18,7 +19,7 @@ export default function About() {
                     <Button variant={'solid'} color={'light'} hoverColor={'dark'} children={'Contact'} />
                 </section>
 
-                <section className={styles.gallery}>
+                <section id="gallery" className={styles.gallery}>
                     {images.map((id) => (
                         <motion.div
                             key={id}
@@ -32,6 +33,7 @@ export default function About() {
                         </motion.div>
                     ))}
                 </section>
+                <ContactForm />
             </main>
         </>
     );

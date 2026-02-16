@@ -1,0 +1,90 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.footer {
+    width: 100%;
+    padding: 60px 20px;
+    background-color: rgba($color-black, 0.95);
+    border-top: 1px solid rgba($color-white, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: auto;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba($color-white, 0.3), transparent);
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 1;
+}
+
+.logo {
+    font-family: $font-family-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: $color-white;
+    font-weight: bold;
+    opacity: 0.9;
+
+    @include mobile {
+        font-size: 1.5rem;
+    }
+}
+
+.socialLoop {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: $color-off-white;
+        font-family: $font-family-sans;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        padding: 10px 20px;
+        border: 1px solid rgba($color-white, 0.2);
+        border-radius: 50px;
+        transition: $transition-smooth;
+        background: rgba($color-white, 0.05);
+
+        &:hover {
+            background: rgba($color-white, 0.1);
+            border-color: rgba($color-white, 0.4);
+            transform: translateY(-2px);
+            color: $color-white;
+        }
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+
+.copyright {
+    color: rgba($color-white, 0.4);
+    font-size: 0.8rem;
+    margin-top: 20px;
+    text-align: center;
+    font-family: $font-family-sans;
+    letter-spacing: 0.5px;
+}
