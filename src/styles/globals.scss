@@ -1,0 +1,60 @@
+@import 'variables';
+@import 'mixins';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-family: $font-family-sans;
+    background-color: $color-black;
+    background-image: url('/assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: $color-off-white;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-family-serif;
+    font-weight: normal;
+    letter-spacing: -0.5px;
+    font-size: 28px;
+
+    @include mobile {
+        font-size: 22px;
+    }
+}
+
+p,
+span {
+    font-size: 16px;
+
+    @include mobile {
+        font-size: 14px;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: $transition-smooth;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}

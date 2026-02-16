@@ -1,0 +1,22 @@
+@import '@styles/variables';
+@import '@styles/mixins';
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    @include flex-center;
+}
+
+.logoLink {
+    // No defaults needed
+}
+
+.logo {
+
+    text-transform: uppercase;
+    cursor: pointer;
+
+    img {
+        width: 200px;
+    }
+}
