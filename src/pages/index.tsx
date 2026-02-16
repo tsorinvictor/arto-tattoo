@@ -18,7 +18,7 @@ export default function Home() {
                         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                         whileHover={{ scale: 1.05 }}
                     >
-                        <img src={logo.src} alt="Arto Logo" />
+                        <img src={logo.src} alt="Arto Logo-alt" />
                     </motion.div>
                 </Link>
             </main>
