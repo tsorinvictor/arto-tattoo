@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Navbar.module.scss';
 import clsx from 'clsx';
 
+// Assets
+import logo from '@public/logo.png';
+
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -53,7 +56,7 @@ const Navbar = () => {
         <>
             <nav className={styles.navbar}>
                 <Link href="/" className={styles.logo}>
-                    ARTO
+                    <img src={logo.src} alt="Arto Logo-alt" />
                 </Link>
 
                 {/* Desktop Links */}

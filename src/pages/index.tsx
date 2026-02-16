@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 import { motion } from "framer-motion";
 
 // Assets
-import logo from "@public/logo.jpg";
+import logo from '@public/logo.png';
 
 export default function Home() {
     return (
