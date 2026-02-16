@@ -1,0 +1,63 @@
+@import '@styles/variables';
+@import '@styles/mixins';
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 64px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.intro {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+}
+
+.title {
+    margin-bottom: $spacing-unit * 2;
+    letter-spacing: 1.4px;
+}
+
+.description {
+    font-family: $font-family-sans;
+    color: $color-off-white;
+    line-height: 1.6;
+}
+
+.contactBtn {
+    margin-top: 16px;
+    padding: 13px 32px;
+    border: 1px solid $color-black;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    transition: $transition-smooth;
+
+    &:hover {
+        background-color: $color-black;
+        color: $color-white;
+    }
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.imageWrapper {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background-color: $color-gray-soft;
+    overflow: hidden;
+}
+
+.placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+}
