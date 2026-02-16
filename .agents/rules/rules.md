@@ -47,3 +47,9 @@
 - **Data Decoupling**: DO NOT hardcode gallery image paths directly in the UI components.
 - **Centralized Data**: Use `src/data/gallery.ts` to store image arrays. UI components should import data from there to prepare for future Backend integration.
 - **Path Aliases**: Always use `@/` for imports (e.g., `import { images } from '@/data/gallery'`).
+
+## CRITICAL: GitHub Pages Pathing
+
+- Every internal URL (links, images, scripts) MUST be prefixed with the repository name: `/arto-tattoo`.
+- Use the `trailingSlash: true` setting in next.config.js to ensure sub-pages like `/about/` load their CSS.
+- For images in the gallery, always use: `src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/gallery/image.jpg`}`.
