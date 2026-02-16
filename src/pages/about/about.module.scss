@@ -1,0 +1,64 @@
+@import '@styles/variables';
+@import '@styles/mixins';
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.intro {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    letter-spacing: 0.1em;
+}
+
+.description {
+    font-family: $font-family-sans;
+    font-size: 1.1rem;
+    color: $color-gray-dark;
+    line-height: 1.6;
+}
+
+.contactBtn {
+    margin-top: 1rem;
+    padding: 0.8rem 2rem;
+    border: 1px solid $color-black;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: $transition-smooth;
+
+    &:hover {
+        background-color: $color-black;
+        color: $color-white;
+    }
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.imageWrapper {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background-color: $color-gray-soft;
+    overflow: hidden;
+}
+
+.placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+}
