@@ -7,7 +7,9 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "src/styles")],
     prependData: `@import "@styles/variables"; @import "@styles/mixins";`,
   },
-  output: "export",
+  basePath: "",
+  assetPrefix: "",
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },
