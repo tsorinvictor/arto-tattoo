@@ -5,7 +5,6 @@
     width: 100vw;
     height: 100vh;
     @include flex-center;
-    background-color: $color-off-white;
 }
 
 .logoLink {
@@ -13,10 +12,11 @@
 }
 
 .logo {
-    font-family: $font-family-serif;
-    font-size: 4rem;
-    letter-spacing: 0.2em;
-    color: $color-black;
+
     text-transform: uppercase;
     cursor: pointer;
+
+    img {
+        width: 200px;
+    }
 }

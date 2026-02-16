@@ -10,8 +10,12 @@
 html,
 body {
     font-family: $font-family-sans;
-    background-color: $color-off-white;
-    color: $color-black;
+    background-color: $color-black;
+    background-image: url('/assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: $color-off-white;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -25,7 +29,21 @@ h5,
 h6 {
     font-family: $font-family-serif;
     font-weight: normal;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.5px;
+    font-size: 28px;
+
+    @include mobile {
+        font-size: 22px;
+    }
+}
+
+p,
+span {
+    font-size: 16px;
+
+    @include mobile {
+        font-size: 14px;
+    }
 }
 
 a {

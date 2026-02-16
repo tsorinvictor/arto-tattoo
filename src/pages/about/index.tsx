@@ -1,22 +1,21 @@
-import Head from 'next/head';
-import { motion } from 'framer-motion';
-import styles from './about.module.scss';
+import Head from "next/head";
+import { motion } from "framer-motion";
+import styles from "./about.module.scss";
+import Button from "@/components/Button";
 
 const images = [1, 2, 3, 4, 5, 6]; // Placeholders
 
 export default function About() {
     return (
         <>
-            <Head>
-                <title>About - Arto Tattoo</title>
-            </Head>
             <main className={styles.container}>
                 <section className={styles.intro}>
                     <h1 className={styles.title}>Arto</h1>
                     <p className={styles.description}>
-                        Minimalist tattoo artistry focused on fine lines and conceptual designs.
+                        Minimalist tattoo artistry focused on fine lines and conceptual
+                        designs.
                     </p>
-                    <button className={styles.contactBtn}>Contact</button>
+                    <Button variant={'solid'} color={'light'} hoverColor={'dark'} children={'Contact'} />
                 </section>
 
                 <section className={styles.gallery}>
