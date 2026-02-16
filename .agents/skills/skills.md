@@ -26,3 +26,9 @@
   - Apply `placeholder="blur"` logic for better User Experience.
   - First two images in the feed must have the `priority` attribute to boost LCP (Largest Contentful Paint) scores.
 - **Lazy Loading**: All images below the "fold" must be natively lazy-loaded.
+
+## Skill: Static Export Management (GitHub Pages)
+
+- **Image Strategy**: Since `unoptimized: true` is set, ensure the agent tells the user to resize images to their display size BEFORE uploading to `/public/gallery`.
+- **Routing**: Remind the user that 404 errors can occur on refresh in sub-pages. (Solution: Use HashRouter or a 404.html redirect hack).
+- **Deployment**: Use the `gh-pages` npm package to automate the push of the `/out` folder.
