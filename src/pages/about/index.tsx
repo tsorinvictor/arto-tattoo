@@ -7,6 +7,12 @@ import ContactForm from "@/components/ContactForm";
 const images = [1, 2, 3, 4, 5, 6]; // Placeholders
 
 export default function About() {
+
+    const goToContact = () => {
+        scrollTo(0, document.getElementById('contact')?.offsetTop || 0);
+    }
+
+
     return (
         <>
             <main className={styles.container}>
@@ -16,7 +22,7 @@ export default function About() {
                         Minimalist tattoo artistry focused on fine lines and conceptual
                         designs.
                     </p>
-                    <Button variant={'solid'} color={'light'} hoverColor={'dark'} children={'Contact'} />
+                    <Button onClick={goToContact} variant={'solid'} color={'light'} hoverColor={'dark'} children={'Contact'} />
                 </section>
 
                 <section id="gallery" className={styles.gallery}>
