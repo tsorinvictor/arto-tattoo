@@ -1,10 +1,8 @@
 import Head from "next/head";
-import { motion } from "framer-motion";
 import styles from "./about.module.scss";
 import Button from "@/components/Button";
 import ContactForm from "@/components/ContactForm";
-
-const images = [1, 2, 3, 4, 5, 6]; // Placeholders
+import Gallery from "@/components/Gallery";
 
 export default function About() {
 
@@ -25,20 +23,7 @@ export default function About() {
                     <Button onClick={goToContact} variant={'solid'} color={'light'} hoverColor={'dark'} children={'Contact'} />
                 </section>
 
-                <section id="gallery" className={styles.gallery}>
-                    {images.map((id) => (
-                        <motion.div
-                            key={id}
-                            className={styles.imageWrapper}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                        >
-                            <div className={styles.placeholder} />
-                        </motion.div>
-                    ))}
-                </section>
+                <Gallery />
                 <ContactForm />
             </main>
         </>
