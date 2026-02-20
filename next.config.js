@@ -7,8 +7,8 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "src/styles")],
     prependData: `@import "@styles/variables"; @import "@styles/mixins";`,
   },
-  basePath: "/arto-tattoo",
-  assetPrefix: "/arto-tattoo",
+  basePath: "",
+  assetPrefix: "",
   output: "export",
   trailingSlash: true,
   images: {

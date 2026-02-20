@@ -8,14 +8,7 @@ const Footer = () => {
     return (
         <footer className={styles.footer}>
             <div className={styles.content}>
-                <motion.div
-                    className={styles.logo}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
-                    ARTO
-                </motion.div>
+
 
                 <motion.div
                     className={styles.socialLoop}
