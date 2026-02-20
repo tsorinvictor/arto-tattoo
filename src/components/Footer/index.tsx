@@ -6,36 +6,11 @@ import styles from './Footer.module.scss';
 import router from 'next/router';
 
 const Footer = () => {
-    const openInstagram = (username: string) => {
-        const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
-        const isIOS = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-        const isAndroid = /android/i.test(userAgent);
-
-        if (isIOS || isAndroid) {
-            let appOpened = false;
-
-            // Prevent fallback execution if the app opens successfully
-            const handleVisibilityChange = () => {
-                if (document.hidden || document.visibilityState === 'hidden') {
-                    appOpened = true;
-                }
-            };
-            document.addEventListener('visibilitychange', handleVisibilityChange);
-
-            // Both iOS and Android Instagram apps support this custom scheme
-            window.location.href = `instagram://user?username=${username}`;
-
-            // Fallback for when the app is not installed
-            setTimeout(() => {
-                if (!appOpened) {
-                    window.location.href = `https://www.instagram.com/${username}/`;
-                }
-                document.removeEventListener('visibilitychange', handleVisibilityChange);
-            }, 2000); // Wait 2s for OS prompt or app launch before falling back
-        } else {
-            // Desktop fallback
-            window.open(`https://www.instagram.com/${username}/`, '_blank', 'noopener,noreferrer');
+    const openInstagram = (url: string) => {
+        if (!url.match(/^https?:\/\//i)) {
+            url = 'https://' + url;
         }
+        return window.open(url, '_blank');
     };
 
 
@@ -52,7 +27,7 @@ const Footer = () => {
                 >
                     <div
                         className={styles.socialItem}
-                        onClick={() => openInstagram('arttoalex')}
+                        onClick={() => openInstagram('https://www.instagram.com/arttoalex')}
                     >
                         <Instagram />
                         <span>@arttoalex</span>
