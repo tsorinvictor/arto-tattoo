@@ -7,8 +7,23 @@ import router from 'next/router';
 
 const Footer = () => {
     const openInstagram = (username: string) => {
-        const webUrl = `https://www.instagram.com/${username}/`;
-        window.open(webUrl, '_blank', 'noopener,noreferrer');
+        const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+
+        if (/android/i.test(userAgent)) {
+            // Android intent to open profile directly
+            window.location.href = `intent://instagram.com/_u/${username}/#Intent;package=com.instagram.android;scheme=https;end`;
+        } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
+            // iOS custom URL scheme
+            window.location.href = `instagram://user?username=${username}`;
+
+            // Fallback for iOS if app is not installed
+            setTimeout(() => {
+                window.location.href = `https://www.instagram.com/${username}/`;
+            }, 1000);
+        } else {
+            // Desktop fallback
+            window.open(`https://www.instagram.com/${username}/`, '_blank', 'noopener,noreferrer');
+        }
     };
 
 
