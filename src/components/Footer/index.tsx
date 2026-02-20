@@ -7,16 +7,8 @@ import router from 'next/router';
 
 const Footer = () => {
     const openInstagram = (username: string) => {
-        const appUrl = `instagram://user?username=${username}`;
-        const webUrl = `https://www.instagram.com/${username}`;
-
-        // Try to open the app
-        window.location.href = appUrl;
-
-        // Fallback to web if the app doesn't open within 500ms
-        setTimeout(() => {
-            window.location.href = webUrl;
-        }, 500);
+        const webUrl = `https://www.instagram.com/${username}/`;
+        window.open(webUrl, '_blank', 'noopener,noreferrer');
     };
 
 
