@@ -4,7 +4,9 @@
 .footer {
     width: 100%;
     padding: 60px 20px;
-    background-color: rgba($color-black, 0.95);
+    background: linear-gradient(to bottom, rgba($color-black, 0.8) 0%, $color-black 100%), url('/arto-tattoo/assets/background.jpg');
+    background-size: cover;
+    background-position: center;
     border-top: 1px solid rgba($color-white, 0.1);
     display: flex;
     flex-direction: column;
@@ -12,6 +14,13 @@
     justify-content: center;
     gap: 30px;
     margin-top: auto;
+
+    @include mobile {
+        background: linear-gradient(to bottom, rgba($color-black, 0.8) 0%, $color-black 100%), url('/arto-tattoo/assets/backgroundMobile.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
     position: relative;
     overflow: hidden;
 

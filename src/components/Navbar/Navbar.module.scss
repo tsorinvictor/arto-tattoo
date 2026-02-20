@@ -16,12 +16,11 @@
         opacity 0.4s ease,
         visibility 0.4s ease;
 
-    @include mobile {
+    backdrop-filter: blur(2px);
+
+    @include tablet {
         padding: 20px 24px;
-        background: url(/arto-tattoo/assets/background.jpg);
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
+
     }
 }
 

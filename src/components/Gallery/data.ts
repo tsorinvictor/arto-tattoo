@@ -17,7 +17,4 @@ export const galleryData = [
   { id: 16, src: "/arto-tattoo/assets/gallery/image16.jpg" },
   { id: 17, src: "/arto-tattoo/assets/gallery/image17.jpg" },
   { id: 18, src: "/arto-tattoo/assets/gallery/image18.jpg" },
-  { id: 19, src: "/arto-tattoo/assets/gallery/image19.jpg" },
-  { id: 20, src: "/arto-tattoo/assets/gallery/image20.jpg" },
-  { id: 21, src: "/arto-tattoo/assets/gallery/image21.jpg" },
 ];

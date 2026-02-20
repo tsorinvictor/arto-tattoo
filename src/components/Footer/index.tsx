@@ -16,10 +16,20 @@ const Footer = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                    <Link href="https://www.instagram.com/arttoalex/" target="_blank" rel="noopener noreferrer">
+                    <a
+                        href="https://www.instagram.com/arttoalex/"
+                        onClick={(e) => {
+                            if (typeof window !== 'undefined' && /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                                e.preventDefault();
+                                window.location.href = 'instagram://user?username=arttoalex';
+                            }
+                        }}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <Instagram />
                         <span>@arttoalex</span>
-                    </Link>
+                    </a>
                 </motion.div>
 
                 <motion.div

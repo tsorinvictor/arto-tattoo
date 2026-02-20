@@ -16,3 +16,9 @@
         @content;
     }
 }
+
+@mixin tablet {
+    @media (max-width: 1260px) {
+        @content;
+    }
+}
