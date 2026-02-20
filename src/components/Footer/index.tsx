@@ -8,18 +8,30 @@ import router from 'next/router';
 const Footer = () => {
     const openInstagram = (username: string) => {
         const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+        const isIOS = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        const isAndroid = /android/i.test(userAgent);
 
-        if (/android/i.test(userAgent)) {
-            // Android intent to open profile directly
-            window.location.href = `intent://instagram.com/_u/${username}/#Intent;package=com.instagram.android;scheme=https;end`;
-        } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
-            // iOS custom URL scheme
+        if (isIOS || isAndroid) {
+            let appOpened = false;
+
+            // Prevent fallback execution if the app opens successfully
+            const handleVisibilityChange = () => {
+                if (document.hidden || document.visibilityState === 'hidden') {
+                    appOpened = true;
+                }
+            };
+            document.addEventListener('visibilitychange', handleVisibilityChange);
+
+            // Both iOS and Android Instagram apps support this custom scheme
             window.location.href = `instagram://user?username=${username}`;
 
-            // Fallback for iOS if app is not installed
+            // Fallback for when the app is not installed
             setTimeout(() => {
-                window.location.href = `https://www.instagram.com/${username}/`;
-            }, 1000);
+                if (!appOpened) {
+                    window.location.href = `https://www.instagram.com/${username}/`;
+                }
+                document.removeEventListener('visibilitychange', handleVisibilityChange);
+            }, 2000); // Wait 2s for OS prompt or app launch before falling back
         } else {
             // Desktop fallback
             window.open(`https://www.instagram.com/${username}/`, '_blank', 'noopener,noreferrer');
