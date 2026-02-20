@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 import styles from './Footer.module.scss';
+import router from 'next/router';
 
 const Footer = () => {
     return (
@@ -17,11 +18,13 @@ const Footer = () => {
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
                     <a
-                        href="https://www.instagram.com/arttoalex/"
+
                         onClick={(e) => {
                             if (typeof window !== 'undefined' && /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
                                 e.preventDefault();
                                 window.location.href = 'instagram://user?username=arttoalex';
+                            } else {
+                                router.push('https://www.instagram.com/arttoalex/');
                             }
                         }}
                         target="_blank"
