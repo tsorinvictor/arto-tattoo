@@ -1,6 +1,16 @@
 @import "@styles/variables";
 @import "@styles/mixins";
 
+@keyframes pulseShadow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba($light-red, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba($light-red, 0.6));
+  }
+}
+
 .main {
   width: 100vw;
   height: 100vh;
@@ -10,9 +20,11 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: filter 0.4s ease-out;
+    animation: pulseShadow 2.5s infinite ease-in-out;
 
     &:hover {
-      filter: drop-shadow(0 0 30px rgba($light-red, 0.5));
+      animation: none;
+      filter: drop-shadow(0 0 30px rgba($light-red, 0.8));
     }
 
     img {
