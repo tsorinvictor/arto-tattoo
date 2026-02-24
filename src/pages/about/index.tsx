@@ -4,6 +4,9 @@ import Button from "@/components/Button";
 import ContactForm from "@/components/ContactForm";
 import Gallery from "@/components/Gallery";
 
+// Assets
+import logo from '@public/logo.png';
+
 export default function About() {
 
     const goToContact = () => {
@@ -15,7 +18,7 @@ export default function About() {
         <>
             <main className={styles.container}>
                 <section className={styles.intro}>
-                    <h1 className={styles.title}>Arto</h1>
+                    <img src={logo.src} alt="Arto Logo-alt" />
                     <p className={styles.description}>
                         Minimalist tattoo artistry focused on fine lines and conceptual
                         designs.
