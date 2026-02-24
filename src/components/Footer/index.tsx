@@ -40,6 +40,7 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
+          suppressHydrationWarning
         >
           &copy; {new Date().getFullYear()} Arto Tattoo. {t("footer.rights")}
         </motion.div>

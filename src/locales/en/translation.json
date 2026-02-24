@@ -24,5 +24,15 @@
     "message_label": "Message",
     "message_placeholder": "Tell us about your idea...",
     "submit_button": "Send Message"
+  },
+  "seo": {
+    "home": {
+      "title": "Arto Tattoo | Minimalist Tattoo Studio in Bucharest",
+      "description": "Minimalist tattoo studio in Bucharest. Discover blackwork, fine line artistry, and custom conceptual designs. Schedule a consultation at Arto Tattoo."
+    },
+    "about": {
+      "title": "About Arto Tattoo | Bucharest Tattoo Studio",
+      "description": "Learn more about Arto Tattoo's vision for minimalist tattoo art. Our space transforms your intricate ideas into timeless art on skin."
+    }
   }
 }
