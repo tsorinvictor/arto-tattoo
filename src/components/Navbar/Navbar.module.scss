@@ -30,15 +30,19 @@
 }
 
 .logo {
-  font-family: $font-family-serif;
-  font-size: 24px;
-  font-weight: bold;
-  letter-spacing: -1px;
   cursor: pointer;
   z-index: 101;
+  transition: filter 0.4s ease-out;
+  animation: pulseShadow 2.5s infinite ease-in-out;
+
+  &:hover {
+    animation: none;
+    filter: drop-shadow(0 0 10px rgba($light-red, 0.8));
+  }
 
   img {
-    width: 60px;
+    width: 100%;
+    max-width: 60px;
   }
 }
 
@@ -198,4 +202,14 @@
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+@keyframes pulseShadow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba($light-red, 0.1));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba($light-red, 0.6));
+  }
 }
