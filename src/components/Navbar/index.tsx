@@ -108,8 +108,16 @@ const Navbar = () => {
           isScrolling && !isOpen && isMobile && styles.navbarHidden,
         )}
       >
-        <Link href="/" className={styles.logo}>
-          <img src={logo.src} alt="Arto Logo-alt" />
+        <Link href="/">
+          <motion.div
+            className={styles.logo}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <img src={logo.src} alt="Arto Logo-alt" />
+          </motion.div>
         </Link>
 
         {/* Desktop Links */}
