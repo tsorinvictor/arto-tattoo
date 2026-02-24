@@ -39,6 +39,11 @@
   - Focus on `letter-spacing` for headers.
   - Use `transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1)` for all hovers.
 - **Mixins**: Create a mixin for "flex-center" and "abs-center" to keep code DRY.
+- **Structure**: Always use the following structural pattern for all `module.scss` files:
+  - Import variables and mixins at the very top (`@import '@styles/variables';`, `@import '@styles/mixins';`).
+  - Define a root class (e.g., `.container`) that wraps the component and handles the main layout (e.g., establishing a flex/grid container with gaps and padding).
+  - Nest child elements inside the root container.
+  - Place responsive mixins (e.g., `@include mobile { ... }`) directly inside the element selector they modify.
 
 ## Asset & Data Management
 

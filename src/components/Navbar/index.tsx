@@ -1,143 +1,181 @@
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import styles from './Navbar.module.scss';
-import clsx from 'clsx';
-import { useWindowSize } from '@/utils/hooks/useWindowSize';
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import styles from "./Navbar.module.scss";
+import clsx from "clsx";
+import { useWindowSize } from "@/utils/hooks/useWindowSize";
+import { useTranslation } from "react-i18next";
 
 // Assets
-import logo from '@public/logo.png';
+import logo from "@public/logo.png";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isScrolling, setIsScrolling] = useState(false);
+  const { t, i18n } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-    const windowSize = useWindowSize();
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-    const isMobile = windowSize.width <= 650;
+  const windowSize = useWindowSize();
 
-    useEffect(() => {
-        let timeout: NodeJS.Timeout;
+  const isMobile = windowSize.width <= 650;
 
-        const handleScroll = () => {
-            // keep it visible at the very top
-            if (window.scrollY > 50) {
-                setIsScrolling(true);
-                clearTimeout(timeout);
-                timeout = setTimeout(() => {
-                    setIsScrolling(false);
-                }, 250);
-            } else {
-                setIsScrolling(false);
-            }
-        };
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
 
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            clearTimeout(timeout);
-        };
-    }, []);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
+    const handleScroll = () => {
+      // keep it visible at the very top
+      if (window.scrollY > 50) {
+        setIsScrolling(true);
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          setIsScrolling(false);
+        }, 250);
+      } else {
+        setIsScrolling(false);
+      }
     };
 
-    const menuVariants = {
-        closed: {
-            y: "-100%",
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-                ease: [0.22, 1, 0.36, 1]
-            }
-        },
-        open: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-                ease: [0.22, 1, 0.36, 1]
-            }
-        }
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timeout);
     };
+  }, []);
 
-    const linkVariants = {
-        closed: { opacity: 0, y: 20 },
-        open: (i: number) => ({
-            opacity: 1,
-            y: 0,
-            transition: {
-                delay: 0.3 + i * 0.1,
-                duration: 0.5,
-                ease: [0.22, 1, 0.36, 1]
-            }
-        })
-    };
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
-    const links = [
-        { name: 'Despre', href: '/about' },
-        { name: 'Galerie', href: '/about#gallery' },
-        { name: 'Contact', href: '/about#contact' },
-    ];
+  const menuVariants = {
+    closed: {
+      y: "-100%",
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
 
-    return (
-        <>
-            <nav className={clsx(styles.navbar, isScrolling && !isOpen && isMobile && styles.navbarHidden)}>
-                <Link href="/" className={styles.logo}>
-                    <img src={logo.src} alt="Arto Logo-alt" />
-                </Link>
+  const linkVariants = {
+    closed: { opacity: 0, y: 20 },
+    open: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.3 + i * 0.1,
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    }),
+  };
 
-                {/* Desktop Links */}
-                <div className={styles.desktopLinks}>
-                    {links.map((link) => (
-                        <Link key={link.name} href={link.href} className={styles.link}>
-                            {link.name}
-                        </Link>
-                    ))}
-                </div>
+  const links = [
+    { id: "about", href: "/about", defaultText: "Despre" },
+    { id: "gallery", href: "/about#gallery", defaultText: "Galerie" },
+    { id: "contact", href: "/about#contact", defaultText: "Contact" },
+  ];
 
-                {/* Burger Icon */}
-                <div
-                    className={clsx(styles.burger, isOpen && styles.burgerOpen)}
-                    onClick={toggleMenu}
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
-            {/* Mobile Menu */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        className={styles.mobileMenu}
-                        initial="closed"
-                        animate="open"
-                        exit="closed"
-                        variants={menuVariants}
-                    >
-                        {links.map((link, i) => (
-                            <motion.div
-                                key={link.name}
-                                custom={i}
-                                variants={linkVariants}
-                            >
-                                <Link
-                                    href={link.href}
-                                    className={styles.mobileLink}
-                                    onClick={toggleMenu}
-                                >
-                                    {link.name}
-                                </Link>
-                            </motion.div>
-                        ))}
-                    </motion.div>
+  const languages = [
+    { code: "ro", label: "RO" },
+    { code: "en", label: "EN" },
+    { code: "de", label: "DE" },
+  ];
+
+  const currentLang = mounted ? i18n.resolvedLanguage : "ro";
+
+  return (
+    <>
+      <nav
+        className={clsx(
+          styles.navbar,
+          isScrolling && !isOpen && isMobile && styles.navbarHidden,
+        )}
+      >
+        <Link href="/" className={styles.logo}>
+          <img src={logo.src} alt="Arto Logo-alt" />
+        </Link>
+
+        {/* Desktop Links */}
+
+        <div className={styles.rightSection}>
+          <div className={styles.langSelector}>
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                className={clsx(
+                  styles.langBtn,
+                  currentLang === lang.code && styles.activeLang,
                 )}
-            </AnimatePresence>
-        </>
-    );
+                onClick={() => changeLanguage(lang.code)}
+              >
+                {lang.label}
+              </button>
+            ))}
+          </div>
+
+          <div className={styles.desktopLinks}>
+            {links.map((link) => (
+              <Link key={link.id} href={link.href} className={styles.link}>
+                {mounted ? t(`navbar.${link.id}`) : link.defaultText}
+              </Link>
+            ))}
+          </div>
+
+          {/* Burger Icon */}
+          <div
+            className={clsx(styles.burger, isOpen && styles.burgerOpen)}
+            onClick={toggleMenu}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className={styles.mobileMenu}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+          >
+            {links.map((link, i) => (
+              <motion.div key={link.id} custom={i} variants={linkVariants}>
+                <Link
+                  href={link.href}
+                  className={styles.mobileLink}
+                  onClick={toggleMenu}
+                >
+                  {mounted ? t(`navbar.${link.id}`) : link.defaultText}
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
 };
 
 export default Navbar;

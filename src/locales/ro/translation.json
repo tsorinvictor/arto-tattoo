@@ -1,0 +1,28 @@
+{
+  "navbar": {
+    "about": "Despre",
+    "gallery": "Galerie",
+    "contact": "Contact"
+  },
+  "about": {
+    "description": "Arta tatuajului minimalist concentrată pe linii fine și designuri conceptuale. Credem că fiecare tatuaj ar trebui să fie o expresie unică a semnificației personale, creat cu precizie și eleganță. Studioul nostru oferă un spațiu primitor unde ideile complexe sunt transformate în artă atemporală și delicată pe piele.",
+    "contact": "Contact"
+  },
+  "footer": {
+    "rights": "Toate drepturile rezervate."
+  },
+  "contact_form": {
+    "invalid_email": "Vă rugăm să introduceți o adresă de email validă",
+    "success_message": "Mesajul tău a fost trimis cu succes!",
+    "network_error": "A apărut o eroare de rețea la trimiterea formularului. Vă rugăm să încercați din nou.",
+    "title": "Contactează-ne",
+    "description": "Pentru a discuta un design personalizat sau pentru a programa o consultație, vă rugăm să completați formularul de mai jos.",
+    "name_label": "Nume",
+    "name_placeholder": "Numele tău",
+    "email_label": "Email",
+    "email_placeholder": "emailul-tau@email.com",
+    "message_label": "Mesaj",
+    "message_placeholder": "Spune-ne despre ideea ta...",
+    "submit_button": "Trimite mesajul"
+  }
+}

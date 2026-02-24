@@ -1,0 +1,28 @@
+{
+  "navbar": {
+    "about": "Über uns",
+    "gallery": "Galerie",
+    "contact": "Kontakt"
+  },
+  "about": {
+    "description": "Minimalistische Tattoo-Kunst mit Fokus auf feine Linien und konzeptionelle Designs. Wir glauben, dass jedes Tattoo ein einzigartiger Ausdruck persönlicher Bedeutung sein sollte, gefertigt mit Präzision und Eleganz. Unser Studio bietet einen einladenden Raum, in dem komplexe Ideen in zeitlose, zarte Kunst auf der Haut verwandelt werden.",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "contact_form": {
+    "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "success_message": "Ihre Nachricht wurde erfolgreich gesendet!",
+    "network_error": "Es gab einen Netzwerkfehler beim Senden des Formulars. Bitte versuchen Sie es erneut.",
+    "title": "Kontakt aufnehmen",
+    "description": "Um ein individuelles Design zu besprechen oder einen Beratungstermin zu vereinbaren, füllen Sie bitte das untenstehende Formular aus.",
+    "name_label": "Name",
+    "name_placeholder": "Ihr Name",
+    "email_label": "E-Mail",
+    "email_placeholder": "ihre@email.com",
+    "message_label": "Nachricht",
+    "message_placeholder": "Erzählen Sie uns von Ihrer Idee...",
+    "submit_button": "Nachricht senden"
+  }
+}
