@@ -33,13 +33,6 @@ export default function About() {
             </motion.div>
           </Link>
           <p className={styles.description}>{t("about.description")}</p>
-          <Button
-            onClick={goToContact}
-            variant={"solid"}
-            color={"dark"}
-            hoverColor={"dark"}
-            children={t("about.contact")}
-          />
         </section>
 
         <Gallery />
