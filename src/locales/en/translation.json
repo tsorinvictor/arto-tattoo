@@ -1,0 +1,28 @@
+{
+  "navbar": {
+    "about": "About",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "about": {
+    "description": "Minimalist tattoo artistry focused on fine lines and conceptual designs. We believe that every tattoo should be a unique expression of personal meaning, crafted with precision and elegance. Our studio offers a welcoming space where intricate ideas are transformed into timeless, delicate art on skin.",
+    "contact": "Contact"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "contact_form": {
+    "invalid_email": "Please enter a valid email address",
+    "success_message": "Your message has been sent successfully!",
+    "network_error": "There was a network error submitting the form. Please try again.",
+    "title": "Get in Touch",
+    "description": "To discuss a custom design or schedule a consultation, please fill out the form below.",
+    "name_label": "Name",
+    "name_placeholder": "Your Name",
+    "email_label": "Email",
+    "email_placeholder": "your@email.com",
+    "message_label": "Message",
+    "message_placeholder": "Tell us about your idea...",
+    "submit_button": "Send Message"
+  }
+}
