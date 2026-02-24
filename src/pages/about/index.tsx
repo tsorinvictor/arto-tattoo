@@ -3,6 +3,7 @@ import styles from "./about.module.scss";
 import Button from "@/components/Button";
 import ContactForm from "@/components/ContactForm";
 import Gallery from "@/components/Gallery";
+import SEO from "@/components/SEO";
 
 // Assets
 import logo from "@public/logo.png";

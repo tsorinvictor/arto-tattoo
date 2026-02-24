@@ -24,5 +24,15 @@
     "message_label": "Mesaj",
     "message_placeholder": "Spune-ne despre ideea ta...",
     "submit_button": "Trimite mesajul"
+  },
+  "seo": {
+    "home": {
+      "title": "Arto Tattoo | Studio de Tatuaje Minimaliste în București",
+      "description": "Studio de tatuaje minimaliste în București. Descoperă arta tatuajului blackwork, fine line și designuri conceptuale personalizate. Programează o consultație la Arto Tattoo."
+    },
+    "about": {
+      "title": "Despre Arto Tattoo | Studio de Tatuaje în București",
+      "description": "Află mai multe despre viziunea Arto Tattoo privind arta tatuajului minimalist. Spațiul nostru transformă ideile tale complexe în artă atemporală pe piele."
+    }
   }
 }
